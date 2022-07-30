@@ -4,30 +4,30 @@ import RPi.GPIO as GPIO
 import time
 GPIO.setmode(GPIO.BOARD)
 delayt = .1 
-value = 0 # this variable will be used to store the ldr value
-ldr = 7 #ldr is connected with pin number 7
-led = 11 #led is connected with pin number 11
-GPIO.setup(led, GPIO.OUT) # as led is an output device so that’s why we set it to output.
-GPIO.output(led, False) # keep led off by default 
+value = 0 # variabel ini akan digunakan untuk menyimpan nilai ldr
+ldr = 7 #ldr terhubung dengan pin nomor 7
+led = 11 #led terhubung dengan pin nomor 11
+GPIO.setup(led, GPIO.OUT) #karena led adalah perangkat output jadi itu sebabnya kami mengaturnya ke output.
+GPIO.output(led, False) # tetap matikan secara default
 def rc_time (ldr):
     count = 0
  
-    #Output on the pin for
+    #Output pada pin untuk
     GPIO.setup(ldr, GPIO.OUT)
     GPIO.output(ldr, False)
     time.sleep(delayt)
  
-    #Change the pin back to input
+    #Ubah pin kembali ke input
     GPIO.setup(ldr, GPIO.IN)
  
-    #Count until the pin goes high
+    #Hitung sampai pinnya tinggi
     while (GPIO.input(ldr) == 0):
         count += 1
  
     return count
  
  
-#Catch when script is interrupted, cleanup correctly
+#Tangkap saat skrip terganggu, bersihkan dengan benar
 try:
     # Main loop
     while True:
