@@ -2,3 +2,4 @@
 
 ![gambar sensor](gambar.PNG)
 ![script py](sensor.py)
+![script python](main.py)
